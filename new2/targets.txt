@@ -1,0 +1,7 @@
+1) Create a general wordmatrix for wiki infobox crawler and put them in mongodb
+2) Create and monitor all the dynamic domains
+3) Recrawl all required domains and put them in monogdb
+4) Explore new resource websites with images
+5) Upgrade GLA with rigorous testing
+6) Create fastest query retrieval mechanism
+7) Introduce AI element to create a conversations and complex queries
