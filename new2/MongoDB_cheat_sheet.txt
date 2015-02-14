@@ -1,0 +1,174 @@
+MongoDB Shell Commands
+
+use <database_name> -> create or shift database
+
+db.dropDatabase(); -> to drop the current database
+
+show dbs -> show the list of databases
+
+show collections -> to show the documents or collections present in the database
+
+db.<collection_name>.find() -> shows the whole document or the data
+
+db.<collection_name>.find().toArray() -> shows the whole document with data present in the array
+
+db.<collection_name>.remove() -> dont delete the document but deletes the content of the document
+
+db.<collection_name>.remove({<column_name>:<regex in quotes>}) -> to remove a specific record in the document
+
+db.<collection_name>.insert({<column_name>:<value>, <column_name>:<value>}) -> to add the new record in to the document with new id value
+
+db.<collection_name>.save({<column_name>:<value>, <column_name>:<value>}) -> to add the new record in to the document if not already present else it will update the document with respect to its id
+
+db.<collection_name>.find().limit(n) -> to show 'n' records in the document or collection
+
+db.<collection_name>.find({'<field_name>':'<value>'}) ->results all the records with the given field name and value present
+
+db.<collection_name>.save(dictionary) -> to save a new dictionary record in the collections
+
+db.<collection_name>.update({<column>:<value>},{"$set":{<column_field>:<value>}}) -> to update the field if present or add it once
+
+db.<collection_name>.update({<column>:<value>},{"$unset":{<column_field>:""}}) -> to remove the field if present
+
+db.<collection_name>.update({<column>:<value1>},{<column_field>:<value2>}) -> to remove whole record and replace with value2
+
+db.<collection_name>.update({<column>:<value>},{"$set":{<column_field>:<value>}},multi=True) -> to update the field if present or add it all
+
+db.<collection_name>.find({<column_name>:{"$exists":0}}) -> gives the list of documents who dont have given column name
+
+db.<collection_name>.find().sort( { $natural: 1 } ) -> prints in the order they exists on disc
+
+db.<collection_name>.find().sort( { $natural: -1 } ) -> prints in the reverse to order they exists on disc
+
+db.<collection_name>.find().sort( { <field1>: 1, <field2>: -1 } ) -> sort specific to the field
+
+db.<collection_name>.find().ensureIndex( { <field1>: 1, <field2>: -1 } ) -> index in the given order
+
+db.<collection_name>.update({<field>:<value>},{$pull:{<field>:<value>}},{multi:true}) -> (condition,removal) -> remove all <value> from array
+
+db.<collection_name>.update({<field>:<value>},{$pull:{<field>:<value>}}) -> remove only one <value> from array
+
+db.<collection_name>.update(<query>,{$push:{<field>:<value>}}) -> insert a <value> into the array
+
+db.<collection_name>.update(<query>,{$addToSet:{<field>:<value>}}) -> insert a <value> into the array only if its not present
+
+db.<collection_name>.distinct(<field>,<query>) -> gives the distinct values of the given field satisfying the query
+<query> -{<field>:<data>/<regex>}
+
+
+python Commands
+
+db.collection_names() -> get list of collections in an array
+
+db.<collection_name>.find(query) -> query
+
+db.<collection_name>.find_one(query) -> query to get only one value
+
+db.<collection_name>.find(query,projection) -> query with conditions
+
+query = {<column_name>:{"$gt":<value>,"$lt":<value>}}
+
+query = {<column_name>:{"$gt":<value>}}
+
+query = {<column_name>:{"$gt":<String_value>}}
+
+query = {<column_name>:{"$gt":datetime(year,month,date),"$lt":datetime(year,month,date)}}
+
+query = {<column_name>:{"$nt":<value>}}
+
+query = {<column_name>:{"$nt":<String_value>}}
+
+query = {<column_name>:{"$exists":1}}
+
+query = {<column_name>:{"$exists":0}}
+
+query.pretty() -> prints in human readable format
+
+query.count() -> shows the count of valid documents which satisfy the query
+
+query = {<column_name>:{"$in":[<value1>,<value2>....]}} -> returns all documents which contains any of the values in the array
+
+query = {<column_name>:{"$all":[<value1>,<value2>....]}} -> returns all documents which contains all of the values in the array
+
+query = {<column_name>.<nested_value>:{"$gt":<value>}} -> for querying the nested documents
+
+db.find(query).distinct(<field>) -> get the distinct values satisfying queries
+
+Aggregation Framework
+
+db.<collection>.aggregate(pipeline of dictionaries) -> Gives the total records in the document
+pipeline -1 -> find number of repetetions of given field -> {$group:{_id:"$<field>",total:{$sum:1}}} (groupby and sum)
+pipeline -2 -> find records whose repetetions are more than given value -> {$match:{total:{$gte:<value>}}} (operator usage)
+pipeline -3 -> sort the total repetetions in decreasing order -> {$sort:{total:-1}} (sortby)
+
+
+command line repair
+
+sudo rm /var/lib/mongodb/mongod.lock   
+sudo -u mongodb mongod -f /etc/mongodb.conf --repair 
+sudo service mongodb start
+mongo
+
+update mongodb
+
+sudo apt-get purge mongodb mongodb-clients mongodb-server mongodb-dev
+sudo apt-get purge mongodb-10gen
+sudo apt-get autoremove
+remove the data directory /var/lib/mongodb
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+Edit /etc/apt/sources.list -> add the following single line
+deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen
+sudo apt-get update 
+sudo apt-get install mongodb-10gen
+
+
+Operators
+
+(query)
+$gt : >
+$gte : >=
+$lt : <
+$lte : <=
+$ne : !=
+$in : exists in an array
+$nin : does not exists in array
+$match : checks for the condtion
+$or : logical or
+$and : logical and
+$not : logical not
+$nor : logical nor
+$exists : existence of field
+$type : matches the given data type
+$mod : modulus
+$regex : put regular expressions
+$text : perform text search
+$where :
+$geoWithin : within given range of lat and long
+$geoIntersects : which intersects in the given range
+$near : near the proximity (lat,long)
+$nearSphere : 3d proximity (x,y,z)
+$all : matches all elements in array
+$eleMatch : conditions over elements of array
+$size : returns the size of the array
+$meta :
+$slice : limits the number of elements in an array
+
+(update)
+$inc : increment by specified amount
+$mul : multiply by specified amount
+$rename : renames the field
+$setOnInsert : only adds value during the insert not on update of a field
+$set : sets the given value for a field
+$unset : removes a field
+$min : only updates if the filed value is less than given
+$max : only updates if the filed value is greater than given
+$currentDate : assigns current date to field
+$addToSet : makes array as set
+$pop : remove last or first element of array
+$pullAll : remove all matching values from array
+$pull : removes from that index till end which is matched
+$pushAll : adds and array to array
+$push : adds one value to array
+
+
+
