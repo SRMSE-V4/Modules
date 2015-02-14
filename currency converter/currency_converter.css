@@ -1,0 +1,14 @@
+table.converter{
+	padding:10px;
+}
+table.converter td,
+table.converter select,
+table.converter input{
+	padding:5px;
+	font-size: 20px;
+}
+table.converter input{
+	color: #0C090A;
+	font-family: "Times New Roman", Georgia, Serif;
+}
+

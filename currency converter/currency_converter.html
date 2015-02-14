@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			Currency Conversion
+		</title>
+		<link rel = "stylesheet" type="text/css" href = "css/currency_converter.css" />
+	</head>
+	<body>
+		<div class = "header">
+			<input type="text" />
+			<p><h1>Currency Converter</h1></p>
+		</div>
+		<div class="holder converter" id="converter">
+			<table class="converter">
+			<tr>
+				<td>
+					<b>India</b>
+				</td>
+				<td>
+					<select id="country"></select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input id="inr" type="number" min="0" />
+				</td>
+				<td>
+					<input id="other" type="number" min="0" />
+				</td>
+			</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript" src="javascript-assets/jquery.js"></script>
+	<script type="text/javascript" src="javascript-assets/currency_converter.js"></script>
+	<script type="text/javascript">
+	$(document).ready({
+			var input = $("<input />",{
+				type : "text"
+			});
+			$("body").appendChild(input);
+	});
+
+	</script>
+</html>
