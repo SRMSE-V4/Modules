@@ -1,0 +1,157 @@
+<html>
+			<head>
+				<title>Metric Converter</title>
+				<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+				<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" type="text/css">
+				<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+				<script type="text/javascript" language="JavaScript" src="metric.js"></script>
+				<link rel="stylesheet" href="metric.css" type="text/css">
+			</head>
+			<style>
+				td{
+					padding:20px
+				}
+				select{
+				-webkit-appearance:textfield;
+				background-color:white;
+				border:1px solid white;
+				}
+				select:hover{
+				border:1px solid grey;
+				}
+				
+			</style>
+			<body>
+				<div class='col-md-12'>
+				<select id='metric'>
+					<option >Temperature</option>
+					<option >Speed</option>
+					<option >Mass</option>
+					<option >DigitalStorage</option>
+					<option >FuelConsumption</option>
+					<option >Length</option>
+				</select>
+				<button id='more-button' class="btn-primary">More</button>
+				</div>
+				<div id='Temperature' class='convert'>
+				<table>
+					<tr><td><b>Farenheit</b><br>
+						<input type='text' id='farenheit'></input></td>
+						<td><b>Celcius</b><br>
+						<input type='text' id='celcius'></input><br></td>
+						<td><b>Kelvin</b><br>
+						<input type='text' id='kelvin'></input></td></tr>
+				</table>
+			</div>
+			<div id='Speed' class='convert'>
+			<table>
+				<tr>
+				<td>
+					<b>Miles/hour</b><br>
+					<input type="text" id='mph'></input>
+				</td>
+				<td>
+					<b>Feet/second</b><br>
+					<input type='text' id='fs'></input>
+				</td>
+				<td>
+					<b>Metres/second</b><br>
+					<input type='text' id='ms'></input>
+				</td>
+				</tr>
+				<tr>
+					<td><b>Km/hour</b><br>
+					<input type='text' id='kmph'></input>
+				</td>
+					<td><b>Knot</b><br>
+					<input type='text' id='knot'></input>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class='convert' id='Mass'>
+		<table>
+			<tr>
+				<td>
+					<b>Metric Ton</b><br>
+					<input type="text" id='metric_ton'></input>
+				</td>
+				<td>
+					<b>Kilogram</b><br>
+					<input type='text' id='kilogram'></input>
+				</td>
+				<td>
+					<b>Gram</b><br>
+					<input type='text' id='gram'></input>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<b>Milligram</b><br>
+					<input type='text' id='milligram'></input>
+				</td>
+				<td>
+					<b>Pound</b><br>
+					<input type='Pound' id='pound'></input>
+				</td>
+				<td>
+					<b>Ounce</b><br>
+					<input type='text' id='ounce'></input>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="convert" id="DigitalStorage">
+			<table>
+				<tr>
+					<td><b>Byte</b><br><input type="text" id='byt_'></input></td>
+					<td><b>Kilobyte</b><br><input type='text' id='kilobyte'></input></td>
+					<td><b>Megabyte</b><br><input type='text' id='megabyte'></td>
+				</tr>
+					<td><b>Gigabyte</b><br><input type='text' id='gigabyte'></input></td>
+					<td><b>Terabyte</b><br><input type='text' id='terabyte'></input></td>
+			</table>
+		</div>
+		<div class="convert" id="Time" width="100%" border="0" cellspacing="0" cellpadding="0">
+			<table>
+				<tr>
+					<td><b>Second</b><br><input type="text" id='second'></input></td>
+					<td><b>Minute</b><br><input type="text" id='minute'></input></td>
+					<td><b>Hour</b><br><input type="text" id='hour'></input></td>
+				</tr>
+				<tr>
+					<td><b>Day</b><br><input type="text" id='day'></input></td>
+					<td><b>Month</b><br><input type="text" id='month'></input></td>
+					<td><b>Year</b><br><input type="text" id='year'></input></td>
+				</tr>
+				<tr class='more'>
+					<td><b>Decade</b><br><input type="text" id='decade'></input></td>
+					<td><b>Century</b><br><input type="text" id='century'></input></td>
+				</tr>
+			</table>
+		</div>
+		<div class = "convert" id = "FuelConsumption" width="100%" border = "0" cellspacing="0" cellpadding="0">
+			<table>
+				<tr>
+					<td><b>Km/Litre</b><br><input type="text" id="km_litre"/></td>
+					<td><b>Litre/100Km</b><br><input type = "text" id="litre_100"/></td>
+					<td><b>MPG</b><br><input type="text" id="MPG"/></td>
+				</tr>
+			</table>
+		</div>
+		<div class = "convert" id = "Length" width= "100%" border="0" cellspacing = "0" cellpadding = "0">
+			<table>
+				<tr>
+					<td><b>Kilometre</b><br><input type= "text" id = "kilometre"/></td>
+					<td><b>Metre</b><br><input type= "text" id = "metre"/></td>
+					<td><b>Mile</b><br><input type= "text" id = "mile"/></td>
+				</tr>
+				<tr>
+					<td><b>Foot</b><br><input type= "text" id = "foot"/></td>
+					<td><b>Yard</b><br><input type= "text" id = "yard"/></td>
+					<td><b>Inch</b><br><input type= "text" id = "inch"/></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+	</html>
