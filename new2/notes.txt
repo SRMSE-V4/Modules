@@ -1,0 +1,47 @@
+matrix analysis
+decide the proper aiml
+test for all the cases (working and non working)
+develop wordmatrix
+go for the spell check and stemming integration
+
+
+
+who when
+what when
+when what
+when who
+which when
+when which
+
+
+
+                           who what    whome what     whose what     where what    which what
+what who                   who whose   whome whose    whose whome    where whome   which whome
+what whome   when whose    who whome   whome who      whose who                    
+             when whome                whome which    whose which                  
+                                       whome where    whose where                  
+                                       whome when     whose when                   
+
+
+What was the temperature in chennai when tsunami hit
+Who was the chief minister of uttar pradesh during riots
+What were primary weapons during world war 2
+Temperature of surface of earth's nearest star
+Language spoken in the state mary kom was born
+Price of gold two months back
+
+
+problem faced - same name though different persons is getting matched
+capitalize the abbreviations and names later
+write queries in mongodb similar to the mysql ones in smart answer
+do the index and logic file in mongodb
+Ask how wordtonum works to guru or prashanth
+
+Disadantage with mongodb is that it gets shutdown everytime and for first query it takes time
+Thousands and thousand issue same goes with lakhs crores thousands
+when there are two number fields unable to identify
+make a sentence fragmenter and analyzer
+if 1st and 1 are used then there will be different flags to be used
+fix the word to num identification module for multiple word to nums
+create your own module to produce the combinations based on the keywords that are to be used for number detection
+dates module number identification system conflicts
